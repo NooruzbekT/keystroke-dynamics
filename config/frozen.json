@@ -1,0 +1,228 @@
+{
+  "created_utc": "2026-11-11T01:00:03+00:00",
+  "seed": 42,
+  "data_sha256": "b11d23538b1865fa6ecf4e8b78567caa312e9c1027604bb022fcc6ad7eaa7a33",
+  "git_commit": "39563c2fde3ef9d56f83b51ba8e67bc0b64b1da9",
+  "git_dirty": false,
+  "versions": {
+    "python": "3.13.5",
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "scikit-learn": "1.9.1"
+  },
+  "split": {
+    "owners": [
+      "s002",
+      "s003",
+      "s004",
+      "s005",
+      "s007"
+    ],
+    "pool_val": [
+      "s008",
+      "s011",
+      "s013",
+      "s016",
+      "s018",
+      "s020",
+      "s022",
+      "s025",
+      "s027",
+      "s029",
+      "s031",
+      "s033",
+      "s035",
+      "s037",
+      "s039",
+      "s041",
+      "s043",
+      "s046",
+      "s048",
+      "s050",
+      "s052",
+      "s054",
+      "s056"
+    ],
+    "pool_test": [
+      "s010",
+      "s012",
+      "s015",
+      "s017",
+      "s019",
+      "s021",
+      "s024",
+      "s026",
+      "s028",
+      "s030",
+      "s032",
+      "s034",
+      "s036",
+      "s038",
+      "s040",
+      "s042",
+      "s044",
+      "s047",
+      "s049",
+      "s051",
+      "s053",
+      "s055",
+      "s057"
+    ],
+    "train_sessions": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "val_sessions": [
+      5,
+      6
+    ],
+    "test_sessions": [
+      7,
+      8
+    ],
+    "impostor_reps": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "feature_columns": [
+    "H.period",
+    "DD.period.t",
+    "UD.period.t",
+    "H.t",
+    "DD.t.i",
+    "UD.t.i",
+    "H.i",
+    "DD.i.e",
+    "UD.i.e",
+    "H.e",
+    "DD.e.five",
+    "UD.e.five",
+    "H.five",
+    "DD.five.Shift.r",
+    "UD.five.Shift.r",
+    "H.Shift.r",
+    "DD.Shift.r.o",
+    "UD.Shift.r.o",
+    "H.o",
+    "DD.o.a",
+    "UD.o.a",
+    "H.a",
+    "DD.a.n",
+    "UD.a.n",
+    "H.n",
+    "DD.n.l",
+    "UD.n.l",
+    "H.l",
+    "DD.l.Return",
+    "UD.l.Return",
+    "H.Return"
+  ],
+  "threshold_rule": "accept if score <= t; t minimises (FAR+FRR)/2 on validation over all validation scores plus min-1e-9; ties: lower FAR, then lower t",
+  "methods": {
+    "mean_abs_distance": {
+      "params": {},
+      "owners": {
+        "s002": {
+          "threshold": 0.9133410455060869,
+          "val_FAR": 0.15978260869565217,
+          "val_FRR": 0.12,
+          "val_avg_error": 0.1398913043478261
+        },
+        "s003": {
+          "threshold": 0.8921470403746866,
+          "val_FAR": 0.10543478260869565,
+          "val_FRR": 0.14,
+          "val_avg_error": 0.12271739130434783
+        },
+        "s004": {
+          "threshold": 0.9099434672153718,
+          "val_FAR": 0.1891304347826087,
+          "val_FRR": 0.12,
+          "val_avg_error": 0.15456521739130435
+        },
+        "s005": {
+          "threshold": 0.8938203599623697,
+          "val_FAR": 0.021739130434782608,
+          "val_FRR": 0.05,
+          "val_avg_error": 0.035869565217391305
+        },
+        "s007": {
+          "threshold": 1.2405063179290658,
+          "val_FAR": 0.4543478260869565,
+          "val_FRR": 0.06,
+          "val_avg_error": 0.25717391304347825
+        }
+      },
+      "val_mean": {
+        "FAR": 0.18608695652173912,
+        "FRR": 0.098,
+        "avg_error": 0.14204347826086958
+      }
+    },
+    "isolation_forest": {
+      "params": {
+        "n_estimators": 100,
+        "max_samples": "auto",
+        "max_features": 0.5,
+        "contamination": "auto",
+        "random_state": 42
+      },
+      "config_id": 1,
+      "selection_rule": "one config for all owners: min mean validation (FAR+FRR)/2, then lower mean FAR, then first in grid order",
+      "owners": {
+        "s002": {
+          "threshold": 0.4351556786024356,
+          "val_FAR": 0.10543478260869565,
+          "val_FRR": 0.18,
+          "val_avg_error": 0.14271739130434782
+        },
+        "s003": {
+          "threshold": 0.4394676281283072,
+          "val_FAR": 0.10217391304347827,
+          "val_FRR": 0.05,
+          "val_avg_error": 0.07608695652173914
+        },
+        "s004": {
+          "threshold": 0.4296050704010675,
+          "val_FAR": 0.13260869565217392,
+          "val_FRR": 0.16,
+          "val_avg_error": 0.14630434782608698
+        },
+        "s005": {
+          "threshold": 0.4343692980717559,
+          "val_FAR": 0.009782608695652175,
+          "val_FRR": 0.08,
+          "val_avg_error": 0.04489130434782609
+        },
+        "s007": {
+          "threshold": 0.5127125491272422,
+          "val_FAR": 0.4326086956521739,
+          "val_FRR": 0.02,
+          "val_avg_error": 0.22630434782608697
+        }
+      },
+      "val_mean": {
+        "FAR": 0.1565217391304348,
+        "FRR": 0.098,
+        "avg_error": 0.1272608695652174
+      }
+    }
+  },
+  "app_method": {
+    "name": "isolation_forest",
+    "params": {
+      "n_estimators": 100,
+      "max_samples": "auto",
+      "max_features": 0.5,
+      "contamination": "auto",
+      "random_state": 42
+    },
+    "selection_rule": "lower mean validation (FAR+FRR)/2, then lower mean FAR, then the baseline"
+  }
+}

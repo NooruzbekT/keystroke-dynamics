@@ -50,9 +50,11 @@ class _ProfileScorer:
         self.mu_ = Z.mean(axis=0)
         return Z
 
+    def signed_deviations(self, X: np.ndarray) -> np.ndarray:
+        return self.scaler_.transform(X) - self.mu_
+
     def deviations(self, X: np.ndarray) -> np.ndarray:
-        """Per-feature |z - mu| in scaled units."""
-        return np.abs(self.scaler_.transform(X) - self.mu_)
+        return np.abs(self.signed_deviations(X))
 
     def profile_mean(self) -> np.ndarray:
         """Owner's mean feature vector in original units."""

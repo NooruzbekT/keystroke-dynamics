@@ -1,0 +1,19 @@
+method,case,owner,source,subject,sessionIndex,rep,score,threshold,margin,accepted,top_features
+mean_abs_distance,false_accept,s007,impostor,s026,1,5,0.5482770510387267,1.2405063179290658,-0.6922292668903391,True,H.n:-3.35; UD.n.l:+2.43; DD.n.l:+1.26; H.Return:+0.89; H.period:-0.85
+mean_abs_distance,false_accept,s007,impostor,s026,5,2,0.5645819629331715,1.2405063179290658,-0.6759243549958943,True,H.n:-2.13; UD.n.l:+1.50; H.Shift.r:+1.12; DD.t.i:+1.11; H.a:-0.96
+mean_abs_distance,false_accept,s007,impostor,s026,6,5,0.5929767826563073,1.2405063179290658,-0.6475295352727586,True,H.n:-2.78; H.Return:+2.60; UD.n.l:+2.21; UD.period.t:+1.34; DD.period.t:+1.31
+mean_abs_distance,false_reject,s002,owner,s002,7,42,2.181611738549436,0.9133410455060869,1.2682706930433492,False,UD.t.i:+11.28; DD.t.i:+9.99; H.period:-6.77; H.i:+6.42; DD.n.l:+3.26
+mean_abs_distance,false_reject,s002,owner,s002,8,42,2.08600353565989,0.9133410455060869,1.1726624901538032,False,H.Return:+8.91; H.five:+6.02; H.n:+5.87; H.l:+5.67; H.i:+5.02
+mean_abs_distance,false_reject,s003,owner,s003,7,39,1.967244014329859,0.8921470403746866,1.0750969739551723,False,DD.n.l:+12.10; UD.n.l:+11.60; H.Shift.r:+4.77; H.o:+4.62; H.i:+4.20
+mean_abs_distance,borderline,s002,impostor,s010,1,4,0.9135477893106144,0.9133410455060869,0.0002067438045275649,False,H.a:-3.40; H.Shift.r:-2.83; H.five:+2.29; H.t:-2.06; H.e:-2.03
+mean_abs_distance,borderline,s005,impostor,s019,4,1,0.8940829530554794,0.8938203599623697,0.00026259309310960877,False,UD.t.i:+3.48; DD.t.i:+3.18; UD.a.n:+1.82; H.o:-1.77; H.five:-1.74
+mean_abs_distance,borderline,s007,impostor,s055,5,4,1.240771262292581,1.2405063179290658,0.0002649443635152071,False,H.t:+3.88; H.n:-3.27; UD.n.l:+2.28; H.Shift.r:+2.16; H.Return:+2.03
+isolation_forest,false_accept,s007,impostor,s051,6,4,0.38137360268092263,0.5127125491272422,-0.13133894644631955,True,H.e:-1.97; DD.o.a:-1.86; UD.o.a:-1.71; H.n:-1.61; H.l:-1.50
+isolation_forest,false_accept,s007,impostor,s051,6,5,0.38566948148979086,0.5127125491272422,-0.12704306763745132,True,DD.o.a:-2.01; H.e:-1.84; UD.o.a:-1.83; H.Return:-1.33; UD.t.i:-1.33
+isolation_forest,false_accept,s007,impostor,s051,7,4,0.388124341622136,0.5127125491272422,-0.12458820750510619,True,H.t:+1.76; DD.o.a:-1.46; H.o:-1.45; H.five:-1.34; H.Return:-1.32
+isolation_forest,false_reject,s002,owner,s002,8,42,0.6124898123656152,0.4351556786024356,0.17733413376317958,False,H.Return:+8.91; H.five:+6.02; H.n:+5.87; H.l:+5.67; H.i:+5.02
+isolation_forest,false_reject,s002,owner,s002,8,43,0.6101620101978038,0.4351556786024356,0.17500633159536821,False,H.i:+7.27; DD.t.i:+6.01; UD.t.i:+5.75; H.five:+4.80; H.period:+4.21
+isolation_forest,false_reject,s002,owner,s002,8,32,0.6054957310521115,0.4351556786024356,0.17034005244967593,False,H.five:+7.25; H.i:+6.33; H.t:+5.58; H.Shift.r:+5.20; H.e:+3.85
+isolation_forest,borderline,s003,owner,s003,8,26,0.43947915104622665,0.4394676281283072,1.1522917919448705e-05,False,H.e:+4.25; H.t:+2.19; H.l:+1.90; H.n:+1.81; H.i:+1.56
+isolation_forest,borderline,s003,impostor,s032,4,5,0.43939989178990846,0.4394676281283072,-6.773633839873838e-05,True,H.t:-3.39; H.o:-2.66; H.period:-2.30; H.a:-1.92; H.n:-1.75
+isolation_forest,borderline,s002,impostor,s055,1,1,0.4350819883131877,0.4351556786024356,-7.369028924791854e-05,True,H.l:-1.63; UD.t.i:-1.63; DD.a.n:+1.58; H.e:-1.49; H.n:-1.47

@@ -3,10 +3,11 @@ n_train: 30
 n_calib: 10
 threshold_percentile: 95
 max_attempt_seconds: 30
+experiment_per_condition: 10
 
 server:
   host: 127.0.0.1
-  port: 8000
+  port: 8731
 
 paths:
   profiles: profiles

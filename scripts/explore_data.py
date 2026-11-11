@@ -3,61 +3,16 @@
 import sys
 from pathlib import Path
 
-import matplotlib
+import numpy as np
+import pandas as pd
 
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt  # noqa: E402
-import numpy as np  # noqa: E402
-import pandas as pd  # noqa: E402
-
-from keystroke.config import load_experiment_config, resolve, utf8_stdio  # noqa: E402
-from keystroke.data import FEATURE_COLUMNS, META_COLUMNS, DataError, key_pairs, load_dataset  # noqa: E402
-from keystroke.splits import assign_subjects  # noqa: E402
+from keystroke.config import load_experiment_config, resolve, utf8_stdio
+from keystroke.data import FEATURE_COLUMNS, META_COLUMNS, DataError, key_pairs, load_dataset
+from keystroke.plotting import SERIES, SURFACE, TEXT, TEXT_MUTED, plt, style
+from keystroke.reporting import md_table
+from keystroke.splits import assign_subjects
 
 UD_TOLERANCE = 1e-3
-
-SURFACE = "#fcfcfb"
-TEXT = "#0b0b0b"
-TEXT_MUTED = "#52514e"
-GRID = "#e4e3df"
-SERIES = ("#2a78d6", "#eb6834")
-
-
-def style() -> None:
-    plt.rcParams.update(
-        {
-            "figure.facecolor": SURFACE,
-            "axes.facecolor": SURFACE,
-            "savefig.facecolor": SURFACE,
-            "axes.edgecolor": TEXT_MUTED,
-            "axes.labelcolor": TEXT,
-            "axes.titlecolor": TEXT,
-            "xtick.color": TEXT_MUTED,
-            "ytick.color": TEXT_MUTED,
-            "text.color": TEXT,
-            "axes.grid": True,
-            "grid.color": GRID,
-            "grid.linewidth": 0.8,
-            "axes.axisbelow": True,
-            "axes.spines.top": False,
-            "axes.spines.right": False,
-            "font.size": 10,
-            "axes.titlesize": 11,
-            "figure.dpi": 150,
-        }
-    )
-
-
-def md_table(df: pd.DataFrame, floatfmt: str = "{:.4f}") -> str:
-    def fmt(v: object) -> str:
-        if isinstance(v, (float, np.floating)):
-            return floatfmt.format(v)
-        return str(v)
-
-    header = "| " + " | ".join(map(str, df.columns)) + " |"
-    sep = "|" + "|".join("---" for _ in df.columns) + "|"
-    rows = ["| " + " | ".join(fmt(v) for v in row) + " |" for row in df.itertuples(index=False)]
-    return "\n".join([header, sep, *rows])
 
 
 def ud_consistency(df: pd.DataFrame) -> pd.DataFrame:

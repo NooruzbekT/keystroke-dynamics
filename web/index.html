@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Клавиатурный почерк</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap top-row">
+      <h1>Клавиатурный почерк</h1>
+      <p id="profile-status" class="profile-status" aria-live="polite">Загрузка состояния профиля…</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="tabs" role="tablist" aria-label="Режим">
+      <button type="button" role="tab" id="tab-enroll" aria-controls="panel-enroll" aria-selected="true">Создание профиля</button>
+      <button type="button" role="tab" id="tab-verify" aria-controls="panel-verify" aria-selected="false" disabled>Проверка</button>
+      <button type="button" role="tab" id="tab-experiment" aria-controls="panel-experiment" aria-selected="false" disabled>Эксперимент</button>
+    </nav>
+
+    <section class="typing" aria-labelledby="typing-title">
+      <h2 id="typing-title" class="visually-hidden">Ввод фразы</h2>
+      <p class="phrase" id="phrase" aria-hidden="true"></p>
+      <label for="typing" class="typing-label">Введите фразу <span id="phrase-text"></span> в своём обычном темпе. Попытка отправится сама, когда вы отпустите последнюю клавишу.</label>
+      <input id="typing" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="text" maxlength="40">
+      <p class="hint">Без исправлений: Backspace, вставка, стрелки, Shift и потеря фокуса сбрасывают попытку. Enter не нужен.</p>
+      <p id="message" class="message" role="status" aria-live="polite"></p>
+      <p id="sr-status" class="visually-hidden" aria-live="polite"></p>
+    </section>
+
+    <section id="panel-enroll" role="tabpanel" aria-labelledby="tab-enroll" class="panel">
+      <div id="enroll-collect">
+        <div class="progress-row">
+          <label for="progress-train">Обучение</label>
+          <progress id="progress-train" max="30" value="0"></progress>
+          <span id="count-train" class="count">0/30</span>
+        </div>
+        <div class="progress-row">
+          <label for="progress-calib">Настройка порога</label>
+          <progress id="progress-calib" max="10" value="0"></progress>
+          <span id="count-calib" class="count">0/10</span>
+        </div>
+        <p class="note">Сначала 30 вводов для обучения, затем ещё 10 отдельных — по ним выбирается порог (95-й перцентиль оценок). Незавершённый сбор сохраняется на сервере.</p>
+        <button type="button" id="build" class="primary" disabled>Создать профиль</button>
+      </div>
+      <div id="enroll-ready" hidden>
+        <p>Профиль создан и сохранён локально. Он загрузится автоматически после перезапуска.</p>
+      </div>
+      <button type="button" id="reset" class="secondary">Сбросить профиль и начать заново</button>
+    </section>
+
+    <section id="panel-verify" role="tabpanel" aria-labelledby="tab-verify" class="panel" hidden>
+      <div id="verdict" class="verdict" hidden>
+        <p id="verdict-text" class="verdict-text"></p>
+        <p id="verdict-numbers" class="verdict-numbers"></p>
+        <button type="button" id="again" class="primary">Проверить ещё раз</button>
+      </div>
+      <p id="verify-empty" class="note">Введите фразу — результат появится здесь.</p>
+      <div id="charts" hidden>
+        <figure class="chart">
+          <figcaption>Интервалы между нажатиями (DD), секунды</figcaption>
+          <svg id="chart-dd" role="img" aria-labelledby="chart-dd-desc"><desc id="chart-dd-desc">Сравнение интервалов keydown→keydown текущего ввода и среднего ритма профиля</desc></svg>
+        </figure>
+        <figure class="chart">
+          <figcaption>Удержание клавиш (H), секунды</figcaption>
+          <svg id="chart-h" role="img" aria-labelledby="chart-h-desc"><desc id="chart-h-desc">Сравнение времени удержания клавиш текущего ввода и среднего ритма профиля</desc></svg>
+        </figure>
+        <details>
+          <summary>Таблица значений</summary>
+          <div class="table-wrap"><table id="values-table"></table></div>
+        </details>
+      </div>
+    </section>
+
+    <section id="panel-experiment" role="tabpanel" aria-labelledby="tab-experiment" class="panel" hidden>
+      <fieldset class="conditions">
+        <legend>Серия</legend>
+        <label><input type="radio" name="condition" value="normal" checked> Обычный набор <span class="count" data-count="normal">0/10</span></label>
+        <label><input type="radio" name="condition" value="slow"> Замедленный набор <span class="count" data-count="slow">0/10</span></label>
+        <label><input type="radio" name="condition" value="pause"> С паузой около секунды между словами <span class="count" data-count="pause">0/10</span></label>
+      </fieldset>
+      <p class="note">Профиль и порог в этом режиме не меняются; каждая попытка записывается в локальный журнал эксперимента.</p>
+      <p id="experiment-last" class="verdict-numbers" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

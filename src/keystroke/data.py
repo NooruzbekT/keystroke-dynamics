@@ -55,7 +55,7 @@ def read_csv(path: Path) -> pd.DataFrame:
 
 
 def validate_schema(df: pd.DataFrame) -> list[str]:
-    """Raise DataError listing every deviation from the CMU layout; return feature columns in file order."""
+    """Raise DataError listing all detected deviations from the CMU layout; return feature columns in file order."""
     errors: list[str] = []
 
     cols = list(df.columns)

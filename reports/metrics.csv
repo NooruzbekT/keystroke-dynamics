@@ -1,0 +1,13 @@
+owner,method,params,threshold,n_owner_train,n_owner_test,n_impostor_test,FAR,FRR,avg_error
+s002,mean_abs_distance,{},0.9133410455060869,200,100,920,0.06956521739130435,0.55,0.3097826086956522
+s003,mean_abs_distance,{},0.8921470403746866,200,100,920,0.04021739130434782,0.89,0.46510869565217394
+s004,mean_abs_distance,{},0.9099434672153718,200,100,920,0.08152173913043478,0.13,0.1057608695652174
+s005,mean_abs_distance,{},0.8938203599623697,200,100,920,0.02608695652173913,0.11,0.06804347826086957
+s007,mean_abs_distance,{},1.2405063179290658,200,100,920,0.40869565217391307,0.1,0.25434782608695655
+s002,isolation_forest,"{""n_estimators"": 100, ""max_samples"": ""auto"", ""max_features"": 0.5, ""contamination"": ""auto"", ""random_state"": 42}",0.4351556786024356,200,100,920,0.042391304347826085,0.57,0.30619565217391304
+s003,isolation_forest,"{""n_estimators"": 100, ""max_samples"": ""auto"", ""max_features"": 0.5, ""contamination"": ""auto"", ""random_state"": 42}",0.4394676281283072,200,100,920,0.042391304347826085,0.72,0.38119565217391305
+s004,isolation_forest,"{""n_estimators"": 100, ""max_samples"": ""auto"", ""max_features"": 0.5, ""contamination"": ""auto"", ""random_state"": 42}",0.4296050704010675,200,100,920,0.05652173913043478,0.15,0.10326086956521739
+s005,isolation_forest,"{""n_estimators"": 100, ""max_samples"": ""auto"", ""max_features"": 0.5, ""contamination"": ""auto"", ""random_state"": 42}",0.4343692980717559,200,100,920,0.020652173913043477,0.16,0.09032608695652174
+s007,isolation_forest,"{""n_estimators"": 100, ""max_samples"": ""auto"", ""max_features"": 0.5, ""contamination"": ""auto"", ""random_state"": 42}",0.5127125491272422,200,100,920,0.3826086956521739,0.04,0.21130434782608695
+MEAN,mean_abs_distance,{},,200,100,920,0.12521739130434784,0.35600000000000004,0.24060869565217394
+MEAN,isolation_forest,"{""n_estimators"": 100, ""max_samples"": ""auto"", ""max_features"": 0.5, ""contamination"": ""auto"", ""random_state"": 42}",,200,100,920,0.10891304347826088,0.328,0.21845652173913047

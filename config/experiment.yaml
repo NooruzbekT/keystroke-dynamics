@@ -1,0 +1,27 @@
+seed: 42
+
+data:
+  url: https://www.cs.cmu.edu/~keystroke/DSL-StrongPasswordData.csv
+  path: data/raw/DSL-StrongPasswordData.csv
+  # Recorded by scripts/download_data.py on the first successful run; verified on every load.
+  sha256: b11d23538b1865fa6ecf4e8b78567caa312e9c1027604bb022fcc6ad7eaa7a33
+  retrieved: "2026-11-09"
+
+split:
+  n_owners: 5
+  train_sessions: [1, 2, 3, 4]
+  val_sessions: [5, 6]
+  test_sessions: [7, 8]
+  impostor_reps: [1, 2, 3, 4, 5]
+
+isolation_forest:
+  contamination: auto
+  grid:
+    n_estimators: [100, 300]
+    max_samples: [auto, 64]
+    max_features: [1.0, 0.5]
+
+paths:
+  reports: reports
+  figures: reports/figures
+  frozen: config/frozen.json

@@ -1,0 +1,13 @@
+phrase: typing rhythm
+n_train: 30
+n_calib: 10
+threshold_percentile: 95
+max_attempt_seconds: 30
+
+server:
+  host: 127.0.0.1
+  port: 8000
+
+paths:
+  profiles: profiles
+  logs: logs

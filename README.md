@@ -10,7 +10,7 @@
 
 Подробный отчёт: [reports/report.md](reports/report.md). Итоговая версия — тег `v1.0`.
 
-**С чего начать проверку:** установить зависимости (ниже), затем `python -m pytest -q` и `python scripts/evaluate.py` — он воспроизводит test-метрики из закоммиченного `config/frozen.json` и сверяет validation побитно; приложение — `python scripts/run_app.py`.
+**С чего начать проверку:** `git clone https://github.com/NooruzbekT/keystroke-dynamics`, установить зависимости (ниже), затем `python -m pytest -q`, `python scripts/download_data.py` и `python scripts/evaluate.py` — он воспроизводит test-метрики из закоммиченного `config/frozen.json` и сверяет validation побитно; приложение — `python scripts/run_app.py`.
 
 ## Проверенная среда
 
